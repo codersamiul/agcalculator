@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h4>Age Calculator</h4>
+        <div class="date-picker">
+            <span>Choose Your Birth date</span>
+            <input type="date" id="datePicker">
+            <span id="chooseDate"></span>
+        </div>
+        <div class="ageCal">
+            <div class="age-box">
+                <p class="header">Years</p>
+                <p class="value" id="ageYears">0</p>
+            </div>
+            <div class="age-box">
+                <p class="header">Months</p>
+                <p class="value" id="ageMonths">0</p>
+            </div>
+            <div class="age-box">
+                <p class="header">Days</p>
+                <p class="value" id="ageDays">0</p>
+            </div>
+            <div class="age-box">
+                <p class="header">Hours</p>
+                <p class="value" id="ageHours">0</p>
+            </div>
+            <div class="age-box">
+                <p class="header">Secounds</p>
+                <p class="value" id="ageSeconds">0</p>
+            </div>
+            <div class="age-box">
+                <p class="header">milliseconds</p>
+                <p class="value" id="ageMilliseconds">0</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- this is js area -->
+    <script>
+        var datePicker = document.getElementById('datePicker');
+        var chooseDate = document.getElementById('chooseDate');
+
+
+        var ageYears = document.getElementById('ageYears');
+        var ageMonths = document.getElementById('ageMonths');
+        var ageDays = document.getElementById('ageDays');
+        var ageHours = document.getElementById('ageHours');
+        var ageSeconds = document.getElementById('ageSeconds');
+        var ageMilliseconds = document.getElementById('ageMilliseconds');
+
+        datePicker.addEventListener('change', function() {
+            var options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            var selectedDob = new Date(this.value);
+            var dateOfBirth = selectedDob.toLocaleDateString('en-US', options);
+            chooseDate.innerHTML = "Date Is:" + " " + dateOfBirth;
+
+
+            var milliSecounds_of_date = Date.parse(dateOfBirth);
+            var milliSeconds_of_date_now = Date.now();
+            var all_age_millisec = milliSeconds_of_date_now - milliSecounds_of_date;
+
+            // define variable
+            var _milliSeconds = all_age_millisec;
+            var _second = 1000;
+            var _minute = _second * 60;
+            var _hour = _minute * 60;
+            var _day = _hour * 24;
+            var _month = _day * 30;
+            var _year = _day * 365;
+
+            // calculate
+
+            var years = Math.round(_milliSeconds / _year);
+            var months = years * 12;
+            var days = years * 365;
+            var hours = Math.round(_milliSeconds / _hour);
+            var seconds = Math.round(_milliSeconds / _second);
+
+
+
+            // output
+
+
+            // ageYears.innerHTML = years;
+            ageMonths.innerHTML = months;
+            ageDays.innerHTML = days;
+            ageHours.innerHTML = hours;
+            ageSeconds.innerHTML = seconds;
+            ageMilliseconds.innerHTML = _milliSeconds;
+
+
+            // comparision operator is here
+            if (years < 13) {
+                ageYears.innerHTML = "You are Chlid(" + " " + years;
+                color
+            } else if (years < 18) {
+                ageYears.innerHTML = "You are Teenager(" + " " + years;
+            } else if (years > 18 && years < 25) {
+                ageYears.innerHTML = "You are Young(" + " " + years;
+            } else if (years > 25 && years < 30) {
+                ageYears.innerHTML = "You are M O(" + " " + years;
+            } else if (years > 30 && years < 60) {
+                ageYears.innerHTML = "You are Old(" + " " + years;
+            }
+
+        });
+    </script>
+</body>
+
+</html>

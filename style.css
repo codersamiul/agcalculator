@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: arial black;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #04012b 0%, #5c5c64 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    position: relative;
+    background-color: rgba(255, 255, 255, .7);
+    width: 760px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.box h4 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.box .date-picker {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.box .date-picker input {
+    margin: 0 10px;
+    border: 0;
+    padding: 8px;
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+.box .date-picker input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #292929;
+}
+
+.box .date-picker span {
+    display: block;
+    text-transform: uppercase;
+}
+
+.box .date-picker span#chooseDate {
+    margin-left: auto;
+}
+
+.ageCal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.ageCal .age-box {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 222px;
+    margin: 10px;
+    transition: .5s ease;
+}
+
+.ageCal .age-box p.header {
+    position: relative;
+    text-align: center;
+    background-color: #020038;
+    color: rgb(185, 183, 183);
+    padding: 10px 30px;
+    border-radius: 10px 10px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.ageCal .age-box .value {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 16px;
+}
